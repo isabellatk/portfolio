@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CV | Isabella Tkalec</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<style>
+/* === HEADER === */
+  header {
+     position: fixed;
+    top: 0;
+    left: 0;
+    width: 85%;
+    margin: 15px 8%;
+    background-color: rgba(205, 218, 215, 0.85);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    box-shadow: 0 4px 10px rgba(61, 63, 61, 0.443);
+    z-index: 1000;
+  }
+
+  nav a:hover {
+    color: #da6922;
+    font-weight: 500;
+  }
+
+  .logo {
+    font-weight: 550;
+    color: rgb(255, 255, 255);
+     font-size: 1.2em;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+  }
+
+body {
+  background-color: #f4f7f5;
+  font-family: "Outfit", sans-serif;
+  color: #1f2d2a;
+}
+
+/* Main container */
+.cv-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* Top intro section */
+.cv-header {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-top: 5rem;
+  margin-bottom: 4rem;
+}
+
+.cv-header img {
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  outline: 6px solid rgba(122,168,158,0.2);
+}
+
+
+.cv-name {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #1f2d2a;
+}
+
+.cv-role {
+  font-size: 1.3rem;
+  color: #4d6b63;
+  margin-top: 5px;
+}
+
+.cv-summary {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  max-width: 600px;
+}
+
+/* Section titles */
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background-color: #da6922;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+}
+
+/* Timeline layout */
+.timeline-item {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 30px;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-year {
+  font-weight: 600;
+  color: #4d6b63;
+}
+
+.timeline-content h4 {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.timeline-content p {
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #3b4f4a;
+}
+
+/* Skills section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 22px;
+}
+
+.skill-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #5f6f69;
+}
+</style>
+</head>
+
+<body>
+
+
+  <header>
+    <div class="logo">Isabella Tkalec</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#workshops">Workshops</a></li>
+        <li><a href="CV.html">CV</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<div class="cv-container">
+
+  <!-- Header / Profile -->
+  <div class="cv-header">
+    <img src="Profilbild1.jpg"Isabella Portrait style="width: 21%; border-radius: 50%;">
+
+    <div>
+      <div class="cv-name">Isabella Tkalec</div>
+      <div class="cv-role">Geospatial Analyst & Science Communicator</div>
+
+      <div class="cv-summary" style="line-height: 1.45;">
+        Interdisciplinary professional combining geospatial analysis,
+        interactive formats & creative science communication. Experienced in
+        translating complex phenomena into accessible concepts & visual narratives.
+      </div>
+    </div>
+  </div>
+
+  <!-- Experience -->
+  <h2 class="section-title">Work at University</h2>
+
+  <div class="timeline-item">
+    <div class="timeline-year">2023 – Present</div>
+    <div class="timeline-content">
+      <h4>Project Staff - iDEAS:lab</h4>
+      <p>
+        Developing and designing workshops for thousands of particiants, from ground school children up to adults 
+        and train-the-trainer. Diverse task field, including: Writing project proposals, designing training 
+        material design and workshops, science event planning, giving talks in context of science-communication, geoinformatics and other STEM-related topics.
+      </p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-year">2024 – Present</div>
+    <div class="timeline-content">
+      <h4>Scientific Staff - SpaceSUITE Project</h4>
+      <p>
+        Investigating skills needs in the space downstream sector. International working groups, involved in 
+        curriculum development, training material development and ESCO profile refinement.
+      </p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-year">2022-2024</div>
+    <div class="timeline-content">
+      <h4>Lecturer and Tutor - Image Processing and Analysis</h4>
+      <p>
+        Three semesters of tutoring and one semester of teaching this university course. 
+        Besides theoretical knowledge, this course is complemented with practical execises with real-world case studies, including data acquisition, 
+        image calibration, landcover classification and analysis of examples like glacier melt, wildfires and floods.
+      </p>
+    </div>
+  </div>
+
+  <div class="timeline-item">
+    <div class="timeline-year">2021 – 2023</div>
+    <div class="timeline-content">
+      <h4>Student Staff - Human Computer Interaction</h4>
+      <p>
+        Besides assistance in project work (femMAD - Female Engagement in Making), I designed an interactive 
+        Maker Scavenger Hunt for children, to conduct a small study focussing on gender differences in making.
+      </p>
+    </div>
+  </div>
+
+  <!-- STEM Workshops -->
+  <h2 class="section-title">STEM Workshops</h2>
+
+  <div class="timeline-item">
+    <div class="timeline-year">2019 – today</div>
+    <div class="timeline-content">
+      <h4>Designing & conducting STEM workshops</h4>
+      <p>
+        Over the past few years, I have created and taught a variety of 
+        STEM workshops for children and young adults. Experiences include instructing 
+        Connected Kids (tablet and digital literacy, still ongoing) and Energy Kids 
+        (teaching renewable energy concepts). Since then, I have designed multiple original 
+        workshops, often incorporating gamification to make learning playful, hands-on, 
+        and memorable.
+      </p>
+    </div>
+  </div>
+
+  <!-- Education & Training -->
+<div class="cv-section" style="margin-top: 60px;">
+  <h2 class="section-title">Education & Training</h2>
+
+  <div style="margin-top: 20px;">
+    <h3>Master of Science in Applied Geoinformatics</h3>
+    <p style="margin: 5px 0;"><em>Paris Lodron University of Salzburg</em> | 2023 – Present (expected 2026)</p>
+    <p style="font-size: 12pt; line-height: 1.6; color: #4d6b63;">
+      <i>Currently completing my master’s thesis, focused on Urban Heat Islands.</i>
+    </p>
+    <br>
+
+    <h3>Bachelor of Science in Geography</h3>
+    <p style="margin: 5px 0;"><em>Paris Lodron University of Salzburg</em> | 2018 – 2023</p>
+  </div>
+</div>
+
+<!-- Honours & Awards -->
+<div class="cv-section" style="margin-top: 60px;">
+  <h2 class="section-title">Honours & Awards</h2>
+
+  <div style="margin-top: 20px;">
+    <h3>[2018] Internationale Salzburger Verkehrstage</h3>
+    <p style="font-size: 12pt; line-height: 1.6;">
+      Award-winning project in the Ideas Competition: <i>“Mobility as User Experience and Public Transport on Waterways.”</i>
+    </p><br>
+
+    <h3>[2022] Energy Globe – Youth Category, Salzburg</h3>
+    <p style="font-size: 12pt; line-height: 1.6;">
+      Contribution (workshop development) to the winning project <i>“Energy Kids.”</i>
+    </p>
+  </div>
+</div>
+<br><br>
+
+
+
+  <h2 class="section-title">Beyond Work</h2>
+
+<div style="display:flex; gap:40px; margin-top:30px;">
+
+  <div style="flex:1;">
+    <h4><b>Trails, Cycling & Exploration</b></h4>
+    <p>
+      From trailrunning to multi-day bikepacking to climbing the Großglockner by bike; 
+      I am driven by curiosity and find great joy in discovering new things and going on adventures.
+    </p>
+  </div>
+
+  <div style="flex:1;">
+    <h4><b>Creative Game Design</b></h4>
+    <p>
+      Designing immersive narrative experiences is not only part of my work; I enjoy 
+      entertainment by storytelling and creating immersive, individualized experiences.
+    </p>
+  </div>
+
+</div>
+<br><br><br>
+
+  <!-- Skills -->
+  <h2 class="section-title">Skills & Tools</h2>
+
+  <div class="skills-grid">
+    
+    <div class="skill-box">
+      <strong>Education / training</strong>
+      <p>Workshops, teaching, storytelling, gamification</p>
+    </div>
+    
+    <div class="skill-box">
+      <strong>GIS & Remote Sensing</strong>
+      <p>ArcGIS Pro/online, QGIS, GEE, eCognition, Leaflet</p>
+    </div>
+
+    <div class="skill-box">
+      <strong>Programming / WebDev</strong>
+      <p>Python, R, JavaScript<br>SQL basics / HTML, CSS</p>
+    </div>
+
+    <div class="skill-box">
+      <strong>Visualization</strong>
+      <p>Affinity & Canva, visual design & cartography</p>
+    </div>
+
+  </div>
+
+  <div style="margin-top: 3rem;">
+    <a href="index.html" style="color:#da6922;">← Back to Portfolio</a>
+  </div>
+</div>
+<br>
+
+
+
+<footer>
+  © 2026 Isabella Tkalec
+</footer>
+
+</body>
+</html>
