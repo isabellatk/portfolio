@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Geoinformatics Portfolio</title>
+  <style>
+    /* === HEADER === */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 85%;
+      margin: 15px 8%;
+      background-color: rgba(20, 88, 60, 0.9);
+      backdrop-filter: blur(4px);
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      box-shadow: 0 4px 10px rgba(61, 63, 61, 0.443);
+      z-index: 1000;
+    }
+
+    .footer-wrapper {
+      background-color: #e8f2ed;
+    }
+
+    .site-footer {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 0px;
+      padding: 80px 20px;
+      text-align: center;
+      border-radius: 50px 50px 0px 0px;
+      background: linear-gradient(rgba(176, 219, 193, 0.96),rgba(219, 241, 223, 0.985)),
+        url("./isohypsen.jpg");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+    }
+
+    .footer-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .footer-main {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .footer-email a {
+      font-size: 20px;
+      color: #217850;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .footer-email a:hover {
+      opacity: 0.5;
+    }
+
+    .footer-divider {
+      width: 100px;
+      height: 2px;
+      background-color: #1e9750;
+      margin: 30px auto;
+      opacity: 0.4;
+    }
+
+    .footer-meta {
+      font-size: 15px;
+      color: #3b5555;
+    }
+
+    .logo {
+      font-weight: 550;
+      color: rgb(255, 255, 255);
+      font-size: 1.2em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 50px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: rgb(203, 235, 220);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #e79b83;
+    }
+
+    /* === MAIN BLOCKS (Landing & Workshops) === */
+    .main-blocks {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .main-blocks a {
+      flex: 1;
+      max-width: 300px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .main-block {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      height: 180px;
+      max-width: 300px;
+      flex: 1;
+    }
+
+    .main-block img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .main-block-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(90, 101, 92, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 7px rgba(0,0,0,0.7);
+      font-size: 18px;
+    }
+
+    .main-block-overlay b {
+      font-size: 1.3em;
+      text-align: center;
+    }
+
+    .main-block-overlay p {
+      margin-top: 5px;
+      font-size: 0.9em;
+    }
+
+    .main-block:hover img {
+      transform: scale(1.3);
+      transition: transform 1s ease;
+    }
+    .main-block:hover .main-block-overlay {
+      background: rgba(0, 0, 0, 0.35);
+    }
+    .main-block:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    /* === BODY SECTION === */
+    body {
+      font-family: "Outfit", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+      color: #333;
+    }
+
+    /* === LANDING SECTION === */
+    .landing {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #e0e7e4;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      background-image: url("isohypsen1.jpg");
+      z-index: 1;
+    }
+
+    .landing::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(210, 226, 215, 0.975); /* transparency white */
+      z-index: -1; /* BEHIND text */
+    }
+
+    .landing .intro-text {
+      width: 70%;
+    }
+
+    .landing .intro-text h1 {
+      font-size: 2em;
+      color: #303c3a;
+      margin-left: 10%;
+      margin-top: 20px;
+    }
+
+    .landing .intro-text p {
+      font-size: 1.3em;
+      color: #303c3a;
+      margin-left: 10%;
+      margin-bottom: 50px;
+    }
+
+    .profile-pic {
+      width: 200px;
+      height: 200px;
+      border-radius: 60%;
+      box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.1);
+      margin-inline-end: 7%;
+      margin-bottom: 20px;
+      margin-left: 60px;
+    }
+
+    .background-layer {
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      z-index: -1;
+    }
+
+    /* ===== CV link design ===== */
+    .hero-cv-link {
+      margin-top: 1px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .hero-cv-link a {
+      color: #5f7c72; 
+      text-decoration: none;
+      font-size: 16px;
+      position: relative;
+      transition: 0.3s ease;
+      background-color: #eef4f1c1;
+      border: 2px solid #3e625ba4;
+      border-radius: 20px;
+      padding: 5px 5px 5px 5px;
+    }
+
+
+    .hero-cv-link a:hover {
+      opacity: 0.6;
+    }
+
+    /* === PORTFOLIO GRID === */
+    .portfolio {
+      padding: 60px 5%;
+      background-color: #f5f5f5;
+      text-align: center;
+    }
+
+    .portfolio h2 {
+      font-size: 2em;
+      color: #4a5a5a;
+      margin-bottom: 40px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-top: 30px;
+      justify-items: center;
+    }
+
+    .project-link {
+      text-decoration: none;
+      color: inherit;
+      width: 100%;
+    }
+
+    .project-link .project {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .project-link .project img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .project-link .project p {
+      font-size: 1em;
+      color: #4a5a5a;
+      margin: 15px;
+    }
+
+    .project-link .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      background-color: #e8f2ed;
+    }
+
+    /* === WORKSHOP SECTION === */
+    .workshop-section {
+      background-color: #f0e8dcb8;
+      padding: 60px 0;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .workshop-section .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      justify-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+
+    .workshop-section h2 {
+      font-size: 2em;
+      color: #4a5a5a;
+      margin-bottom: 20px;
+    }
+
+    .workshop-section p {
+      font-size: 1.2em;
+      color: #555;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+    /* === SPEAKING === */
+    .speaking {
+      background-color: #b7d0d8b8;
+      padding: 60px 10%;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .speaking h1 {
+      font-size: 2em;
+      color: #1b5768;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .speaking-container {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .speaking-image {
+      flex: 1;
+      max-width: 33%;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .speaking-text {
+      flex: 2;
+      font-size: 1.2em;
+      color: #333;
+      line-height: 1.6em;
+    }
+
+    .bubble {
+      /*background: #f0e8dcb8;*/
+      padding: 0.25em 0.6em;
+      border-radius: 0.8em;
+      width: fit-content;
+      display: inline-block;
+    }
+
+
+
+    @media (max-width: 768px) {
+      .speaking-container {
+        flex-direction: column;
+      }
+
+      .speaking-image {
+        max-width: 100%;
+      }
+    }
+
+
+  /* ======  TAGS for projects   ======== */
+
+  .project {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+    /*
+      background-color:#728b4bf1; 
+      background-color:#3c5158; 
+      background-color:#cfe1d6;
+      background-color:#dee1cf;
+      color: rgb(54, 59, 26);
+      box-shadow: 0 4px 5px rgba(0,0,0,0.4);
+    */
+
+    .project-tags {
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 0 12px;
+    }
+
+    .project-tags .tag {
+      font-size: 0.8rem;
+      padding: 4px 8px;
+      border-radius: 30px;
+      
+      background-color: rgba(46, 130, 107, 0.08);
+      color: #1e9777;
+      border: 1.4px solid #63ae9a;
+      font-weight: 420;
+    }
+
+    .project-tags1 {
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 0 12px;
+    }
+
+    .project-tags1 .tag1 {
+      background-color:#bfc2711f; 
+      border: 1.4px solid #abae87c1; 
+      color: #7a7e4ff1;
+      font-size: 0.8rem;
+      padding: 4px 8px;
+      border-radius: 30px;
+      font-weight: 450;
+    }
+
+
+    /* =?== ADDITIONAL ===== */
+
+    .additional-section {
+      background-color: #295732b8;
+      padding: 6px 0;
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: x-large;
+      font-family:"Outfit";
+      line-height: 1.3em;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 16px;
+      }
+
+      .landing {
+        padding: 40px 20px;
+      }
+
+      .landing .intro-text {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .profile-pic {
+        margin: 30px 0 0 0;
+      }
+    }
+
+    .scroll-arrow {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 25px;
+      height: 25px;
+      border-left: 4px solid #fff;
+      border-bottom: 4px solid #fff;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      animation: bounce 1.6s infinite;
+      cursor: pointer;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+      50% {
+        transform: translate(-50%, -35%) rotate(-45deg);
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">Isabella Tkalec</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#workshops">Workshops</a></li>
+        <li><a href="CV.html">CV</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- === LANDING SECTION === -->
+  <section class="landing" id="home">
+    <div style="display: flex; align-items: center; gap: 30px; max-width: 1000px; width: 100%;">
+      <div class="intro-text">
+        <br><br><br><br><br><br>
+        <h1>Isabella Tkalec</h1>
+        <p style="font-size: 23px;">
+          I'm a <b>geoinformatics specialist</b> <br>and <b>science communicator</b>.
+          <br><br>
+          <a style="font-size: 19.5px;">I'm passionate about spatial analysis, Earth Observation, data visualization
+          and mapping. <br>I have a strong background in creating gamified, science-based workshops and experiences, focussing on natural sciences, tech & making.</p>
+          </a>
+
+          <p class="hero-cv-link">
+            <a href="CV.html" target="_blank">
+              View CV
+            </a>
+          </p>
+
+
+          <br><br><br>
+      </div>
+      <img src="Profilbild2.jpg" alt="Profile picture of Isabella Tkalec" style="width: 31%; height: 31%; margin-top: 60px;" class="profile-pic" />
+    </div>
+
+<br><br><br><br>
+  <div 
+    class="scroll-arrow" style="margin-top: 100px;" onclick="scrollDown()">
+  </div>
+
+    <div class="main-blocks">
+      <a href="#projects">
+        <div class="main-block">
+          <img src="sentinel.png" alt="My Projects" />
+          <div class="main-block-overlay"><b>Geoinformatics <br>Projects</b></div>
+        </div>
+      </a>
+
+      <a href="#workshops">
+        <div class="main-block">
+          <img src="Cyberstorm_08.jpeg" alt="Workshops" />
+          <div class="main-block-overlay"><b>Workshops</b></div>
+        </div>
+      </a>
+
+      <a href="#speaking">
+        <div class="main-block">
+          <img src="connectedkids.jpg" alt="Speaker & Teaching" />
+          <div class="main-block-overlay"><b>Speaker & Teaching activities</b></div>
+        </div>
+      </a>
+    </div>
+
+    <br><br>
+  </section>
+
+  <!-- === PORTFOLIO SECTION === -->
+  <section class="portfolio" id="projects">
+    <h2>My Projects</h2>
+      <p style="font-family: Outfit; font-size: 20px; color: #555; text-align:center; max-width:80%; margin: 0 auto;">
+        This section presents a selection of geospatial and Earth Observation projects. 
+        It includes practical applications of geospatial methods, including satellite 
+        data analysis, spatial modelling, index development, land-cover assessment and map creation. 
+        Each project illustrates specific tools, datasets and analytical approaches used in my work.
+        <br><br>
+      </p>
+    <div class="project-grid">
+
+      <a href="UHV.html" class="project-link">
+        <div class="project">
+          <img src="./project_images/UHV3.png" alt="Project 4" />
+          <p><b>Urban Heat Vulnerability</b><br>Analyzing land use changes through remote sensing data and mapping techniques.</p>
+          <div class="project-tags">
+              <span class="tag">spatial analysis</span>
+              <span class="tag">data viz</span>
+            </div>
+        </div>
+      </a>
+
+      <a href="rondo-rides.html" class="project-link">
+        <div class="project">
+          <img src="./project_images/project2_2.png" alt="Project 2" />
+          <p><b>Rondo Rides</b><br>Interactive Map for finding recommended cycling routes based on municipalities.</p>
+            <div class="project-tags">
+              <span class="tag">webGIS</span>
+              <span class="tag">leaflet</span>
+            </div>
+        </div>
+      </a>
+
+      <a href="urban-blue-green.html" class="project-link">
+        <div class="project">
+          <img src="project1.png" alt="Urban Blue and Green Spaces" />
+          <p><b>Urban Blue and Green Spaces</b><br>Assessing natural components as indicators of quality of life in dense urban areas.</p>
+            <div class="project-tags">
+              <span class="tag">EO</span>
+              <span class="tag">spatial analysis</span>
+            </div>
+        </div>
+      </a>
+
+      <a href="digital-drift.html" class="project-link">
+        <div class="project">
+          <img src="./project_images/digitaldrift1.png" alt="Project Digital Drift" />
+          <p><b>Digital Drift</b><br>Science-based Mission Game about data literacy with interactive dashboard</p>
+            <div class="project-tags">
+              <span class="tag">web dev</span>
+              <span class="tag">gamification</span>
+              <span class="tag">UI design</span>
+            </div>
+        </div>
+      </a>
+
+      <a href="bergheim.html" class="project-link">
+        <div class="project">
+          <img src="./project_images/bergheim.png" alt="Bergheim River Map" />
+          <p><b>Bergheim River Map</b><br>Cartography and visualization of a local river map for the public</p>
+            <div class="project-tags">
+              <span class="tag">cartography</span>
+            </div>
+        </div>
+      </a>
+
+      <a href="volcano.html" class="project-link">
+        <div class="project">
+          <img src="./project_images/volcano2.png" alt="Project 3" />
+          <p><b>Volcanic monitoring</b><br>Exploring radar data for quantifying volcanic burnt area.</p>
+            <div class="project-tags">
+              <span class="tag">RADAR</span>
+              <span class="tag">EO</span>
+            </div>
+        </div>
+      </a>
+
+      <a href="VIA.html" class="project-link">
+        <div class="project">
+          <img src="project5.jpeg" alt="Project 5" />
+          <p><b>Visual Impact Analysis</b><br>Visualizing spatial data for public communication and education.</p>
+            <div class="project-tags">
+              <span class="tag">VR</span>
+              <span class="tag">modeling</span>
+              <span class="tag">spatial analysis</span>
+            </div>
+        </div>
+      </a>
+
+      <a href="image-classification.html" class="project-link">
+        <div class="project">
+          <img src="./project_images/classification1result.png" alt="Project 5" />
+          <p><b>Image classification</b><br>Semi-automatic classification workflow of satellite data</p>
+            <div class="project-tags">
+              <span class="tag">image analysis</span>
+              <span class="tag">EO</span>
+            </div>
+        </div>
+      </a>
+
+      <a href="spatial-statistics.html" class="project-link">
+        <div class="project">
+          <img src="./project_images/spatialstatistics.png" alt="Project 5" />
+          <p><b>Spatial Statistics</b><br>Local and global Moran's I <br> k-means clustering</p>
+            <div class="project-tags">
+               <span class="tag">data analytics</span>
+               <span class="tag">statistics</span>
+            </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- === WORKSHOP SECTION === -->
+  <section class="workshop-section" id="workshops">
+
+<h2>My Workshops</h2>
+      <p>
+        Desigend by me - integrating physics, chemistry and tech in engaging and interactive sessions.
+        I am constantly exploring new technologies and methodologies to bring exciting topics to people.
+      </p>
+    <div class="container">
+      <a href="workshop-science-events.html" class="project-link">
+        <div class="project">
+          <img src="workshops3.jpg" alt="Science Events" />
+          <p><b>Science Events</b><br> Lange Nacht der Forschung, MINTdays, open 3D-Printing labs at shopping malls,...</p>
+            <div class="project-tags1">
+                <span class="tag1">science communication</span>
+            </div>
+        </div>
+      </a>
+
+
+      <a href="workshop-foodchemistry.html" class="project-link">
+        <div class="project">
+          <img src="chemie1.jpg" alt="Lebensmittelchemie" />
+          <p><b>Food chemistry</b><br>Analytics of food products, their chemical 
+                properties and developing a pH-Indicator</p>
+            <div class="project-tags1">
+                <span class="tag1">chemistry</span>
+                <span class="tag1">food science</span>
+            </div>
+        </div>
+      </a>
+
+      <a href="workshop-cyberstorm.html" class="project-link">
+        <div class="project">
+          <img src="Cyberstorm_08.jpeg" alt="Cyberstorm Workshop" />
+          <p><b>Cyberstorm</b><br>A mobile science Escape Room, to challenge an overtaking AI with STEAM skills</p>
+            <div class="project-tags1">
+                <span class="tag1">gamification</span>
+                <span class="tag1">AI</span>
+            </div>
+        </div>
+      </a>      
+
+      <a href="workshop-elektroknete.html" class="project-link">
+        <div class="project">
+          <img src="./project_images/elektroknete.jpg" alt="Elektrische Knetmonster" />
+          <p><b>Electric Monsters</b><br>Basics of electronics, circuits and bilding your own conductive, electric monsters</p>
+            <div class="project-tags1">
+                <span class="tag1">electronics</span>
+            </div>
+        </div>
+      </a>  
+      
+      <a href="workshop-experiments.html" class="project-link">
+        <div class="project">
+          <img src="freihand.jpg" alt="Urban Blue and Green Spaces" />
+          <p><b>Science Experiments</b><br>Simple experiments with household items. Explore science in everyday things</p>
+            <div class="project-tags1">
+                <span class="tag1">physics & science</span>
+            </div>
+        </div>
+      </a>
+
+      <a href="workshop-outoftheblue.html" class="project-link">
+        <div class="project">
+          <img src="cyanotype.jpeg" alt="Cyanotypie" />
+          <p><b>Cyanotype - Out of The Blue</b><br> Learn about the physics behind photography and create your own blueprints</p>
+            <div class="project-tags1">
+                <span class="tag1">physics</span>
+                <span class="tag1">maker</span>
+            </div>
+        </div>
+      </a>
+
+      <a href="workshop-lightmaker.html" class="project-link">
+        <div class="project">
+          <img src="makerschnitzel.jpeg" alt="Maker Scavenger Hunt" />
+          <p><b>Maker Scavenger Hunt</b><br>Walk through the process of designing and crafting your own lamp with gamified guidance to become a Maker.</p>
+            <div class="project-tags1">
+                <span class="tag1">gamification</span>
+                <span class="tag1">electronics</span>
+                <span class="tag1">maker</span>
+            </div>
+        </div>
+      </a>
+
+
+    </div>
+  </section> 
+
+
+
+<section class="speaking" id="speaking">
+  <h1>Speaking & Teaching activities</h1>
+
+  <div class="speaking-container">
+    <img src="connectedkids.jpg" alt="Speaking activity" class="speaking-image" />
+    <div class="speaking-text">
+      <p>
+        I have <b>tutored and lectured a university course</b> about <b>Image Processing and Analysis.</b>
+        In 2025 I held a talk about gamification in science communication at the <b>Living Planet Symposium</b>.
+        <!--  -->
+        <br><br>On primary schools, i regularly hold workshops about <b>technology 
+        in education</b> for teachers and students and teach the use of tablets at school.
+
+      </p>
+    </div>
+  </div>
+
+  <!--  BLOCK (image right, text left) -->
+  <div class="speaking-container reverse">
+    <div class="speaking-text">
+      <p>
+        I also contribute to <b>science communication</b> initiatives and outreach events
+        focused on sustainability, innovation, and digital literacy. <br><br>
+        My aim is to make complex spatial, scientific and environmental phenomena understandable and 
+        engaging for diverse audiences.
+      </p>
+    </div>
+    <img src="presenting1.jpeg" alt="Outreach activity" class="speaking-image" />
+  </div>
+
+
+    <!--  BLOCK (image right, text left) -->
+</section>
+
+
+
+
+<section class="speaking" style="background-color: #e8f2ed;" id="speaking">
+<br>
+  <h1 style="color: #3a5858;">Further passions</h1>
+
+<div style="display: flex; align-items: center; gap: 50px; margin: 50px 0;">
+   
+    <div style="flex: 1;">
+      <h2>Escape Game Design</h2>
+      <p style="font-size: 1.2em; line-height: 1.6em">
+        <strong>Wedding Escape Room:</strong> The Secret of Conte Benedek<br>
+        <br>Designed for the wedding on a castle as a venue, the gamified experience of "Conte Benedek" sends 
+          wedding guests through different riddles focussing on solving the secret of the Conte. Through different 
+          stories and tasks, tailored to the wedding couple's story, mixed with <br>the venue - guests 
+          learn about the bride and groom,<br> woven into the story of the venue. 
+      </p>
+    </div>
+
+    <!-- IMAGES -->
+    <div style="flex: 1; position: relative;">
+      <img src="project_images/weddingescape.jpg"
+          style="width: 105%; border-radius: 14px; display: block; box-shadow: 0 10px 25px rgba(0,0,0,0.15);" />
+      <img src="project_images/junggesellen1.jpg"
+          style="position: absolute; bottom: -60px; left: -40px; width: 55%; border-radius: 5px; 
+                  box-shadow: 0 10px 25px rgba(0,0,0,0.15);">
+    </div>    
+</div>
+    
+
+</div>
+
+      <div style="flex: 1; position: relative;">
+  <div style="display: flex; align-items: center; gap: 60px; margin: 100px 0;">
+
+  <!-- IMAGE (LEFT SIDE) -->
+  <div style="flex: 1; position: relative;">
+
+    <img src="project_images/geburtstagsgame.jpeg"
+         style="width: 80%; border-radius: 12px; display: block; box-shadow: 0 10px 25px rgba(0,0,0,0.15);" />
+  </div>
+
+  <!-- TEXT (RIGHT SIDE) -->
+  <div style="flex: 1;">
+    <h2>Personalized Scavenger Hunt</h2>
+    <p style="font-size:14pt; line-height:1.6;">
+      <strong>A Life's Journey:</strong> Celebrating a round Birthday<br>
+      <br>
+      Based on experiences, hobbies, passions and characteristics of the birthday person,
+      I developed a scavenger hunt style journey with humorous tasks. Starting from a map,
+      tasks had to be completed to find out the next cache — and to finally gather the magic key,
+      find the gatekeeper and enter the room with the treasure.
+    </p>
+  </div>
+</div>
+
+
+  <div style="display: flex; align-items: center; gap: 60px; margin: 100px 0;">
+
+    <!-- TEXT SIDE -->
+    <div style="flex: 1;">
+      <h2>Magic-themed Bachelorette Adventure</h2>
+      <p style="font-size:14pt; line-height:1.6;" >
+        <strong>The Herb Witches' Trial:</strong> Certification as a magical wife
+        <br><br>
+        Based on a full-day adventure including different locations and stops, 
+        the storyline tested the bride’s skills as a future wife. Creative challenges, 
+        an immersive narrative and a final magical trial awaited the bride and her friends.
+      </p>
+    </div>
+
+      <!-- IMAGE SIDE -->
+    <div style="flex: 1; position: relative;">
+      <img src="project_images/junggesellen5.png"
+          style="width: 80%; border-radius: 8px; display: block;" />
+    </div>
+  </div>
+</section>
+
+
+<div class="footer-wrapper">
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="footer-main" style="font-weight: 600;">
+        Interested in my work or any questions?
+      </p>
+
+      <p class="footer-email">
+        <a href="mailto:isabella.tkalec@plus.ac.at">
+          isabella.tkalec@plus.ac.at
+        </a>
+      </p>
+
+      <div class="footer-divider"></div>
+
+      <p class="footer-meta">
+        Geoinformatics - Science Communication - STEM Workshops
+      </p>
+    </div>
+  </footer>
+</div>
+
+
+</body>
+</html>
